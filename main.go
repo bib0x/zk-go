@@ -31,6 +31,8 @@ var root struct {
 	Edit  cmd.Edit  `cmd group:"notes" help:"Edit notes matching the given criteria."`
 	Tag   cmd.Tag   `cmd group:"notes" help:"Manage the note tags."`
 
+  Config cmd.Config `cmd group:"config" help:"List Aliases"`
+
 	NotebookDir string  `type:path placeholder:PATH help:"Turn off notebook auto-discovery and set manually the notebook where commands are run."`
 	WorkingDir  string  `short:W type:path placeholder:PATH help:"Run as if zk was started in <PATH> instead of the current working directory."`
 	NoInput     NoInput `help:"Never prompt or ask for confirmation."`
@@ -137,6 +139,7 @@ func options(container *cli.Container) []kong.Option {
 			"format": "Formatting",
 			"notes":  term.MustStyle("NOTES", core.StyleYellow, core.StyleBold) + "\n" + term.MustStyle("Edit or browse your notes", core.StyleBold),
 			"zk":     term.MustStyle("NOTEBOOK", core.StyleYellow, core.StyleBold) + "\n" + term.MustStyle("A notebook is a directory containing a collection of notes", core.StyleBold),
+			"config": term.MustStyle("CONFIG", core.StyleYellow, core.StyleBold) + "\n" + term.MustStyle("Browse current configuration set", core.StyleBold),
 		}),
 	}
 }
